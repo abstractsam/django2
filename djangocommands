@@ -1,0 +1,4 @@
+python manage.py runserver - to run app on browser
+1.python manage.py makemigrations samdjangoproject - to prepare migration file
+2.python manage.py migrate - to effect changes on migration file
+3.python manage.py createsuperuser - create super admin
