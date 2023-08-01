@@ -3,7 +3,7 @@
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Emobilis</title>
+ <title>Car Dealer Website</title>
  </head>
  <body>
 
@@ -26,40 +26,25 @@
  {% csrf_token %}
 
 <div class="form-group">
- <input type="text" value="{{ dta.name }}" class="form-control" placeholder="Name" name="name" required>
+ <input type="text" value="{{ dta.model }}" class="form-control" placeholder="Model" name="model" required>
  </div>
 
  <div class="form-group">
- <input type="email" value="{{ dta.email }}" class="form-control mt-2" placeholder="Email" name="email" required>
+ <input type="email" value="{{ dta.location }}" class="form-control mt-2" placeholder="Location" name="location" required>
  </div>
 
  <div class="form-group">
- <input type="number" value="{{ dta.age }}" class="form-control mt-2" placeholder="Age" name="age" required>
+ <input type="number" value="{{ dta.year }}" class="form-control mt-2" placeholder="Year" name="year" required>
  </div>
 
     <div class="form-group">
- <input type="number" value="{{ dta.phone }}" class="form-control mt-2" placeholder="Phone Number" name="phone" required>
+ <input type="number" value="{{ dta.cartype }}" class="form-control mt-2" placeholder="Select Type of Car" name="cartype" required>
  </div>
 
 <div class="form-group">
- <input type="text" value="{{ dta.country }}" class="form-control mt-2" placeholder="Update Country" name="country" required>
+ <input type="text" value="{{ dta.price }}" class="form-control mt-2" placeholder="Price" name="price" required>
  </div>
 
- <div class="form-group">
- <input type="text" value="{{ dta.city }}" class="form-control mt-2" placeholder="Update City" name="city" required>
- </div>
-
-
-
-
-
- <div class="form-group mt-2">
- <select id="gender" name="gender" class="form-control" required>
- <option selected>{{ dta.gender }}</option>
- <option value="male">Male</option>
- <option value="female">Female</option>
- </select>
- </div>
 
  <div class="d-grid gap-2">
 
@@ -74,26 +59,22 @@
 
  <table>
  <tr>
- <th>Name</th>
- <th>Email</th>
- <th>Age</th>
- <th>Phone</th>
- <th>Country</th>
- <th>City</th>
- <th>Gender</th>
+ <th>Model</th>
+ <th>Location</th>
+ <th>Year</th>
+ <th>Type of car </th>
+ <th>Price</th>
  <th>Action</th>
  </tr>
 
 
  {% for d in data %}
 <tr>
- <th>{{ d.name }}</th>
- <th>{{ d.email }}</th>
- <th>{{ d.age }}</th>
- <th>{{ d.phone }}</th>
- <th>{{ d.country }}</th>
- <th>{{ d.city }}</th>
- <th>{{ d.gender }}</th>
+ <th>{{ d.model }}</th>
+ <th>{{ d.location }}</th>
+ <th>{{ d.year }}</th>
+ <th>{{ d.cartype }}</th>
+ <th>{{ d.price }}</th>
  <th>
  <button>
  <a href="/delete/{{ d.id }}"> Delete </a>

@@ -7,7 +7,7 @@ from .models import People
 def indexpage(request):
     data = People.objects.all()
     context = {"data": data}
-    return render(request, "index.html", context)
+    return render(request, "home.html", context)
 
 
 # Function to delete data
@@ -15,28 +15,25 @@ def deleteData(request, id):
     d = People.objects.get(id=id)
     d.delete()
     return redirect("/")
-    return render(request, "index.html")
+    return render(request, "home.html")
 
 
 # Function to update our records
 def updateData(request, id):
     if request.method == "POST":
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        country = request.POST.get('country')
-        city = request.POST.get('city')
-        age = request.POST.get('age')
-        gender = request.POST.get('gender')
+        model = request.POST.get('model')
+        location = request.POST.get('location')
+        year = request.POST.get('year')
+        cartype = request.POST.get('cartype')
+        price = request.POST.get('price')
 
         edit_data = People.objects.get(id=id)
-        edit_data.name = name
-        edit_data.email = email
-        edit_data.age = age
-        edit_data.phone = phone
-        edit_data.country = country
-        edit_data.city = city
-        edit_data.gender = gender
+        edit_data.model = model
+        edit_data.location = location
+        edit_data.year = year
+        edit_data.cartype = cartype
+        edit_data.price = price
+
         edit_data.save()
 
         return redirect("/")
@@ -48,15 +45,13 @@ def updateData(request, id):
 
 def insertData(request):
     if request.method == "POST":
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        age = request.POST.get('age')
-        country = request.POST.get('country')
-        city = request.POST.get('city')
-        gender = request.POST.get('gender')
+        model = request.POST.get('model')
+        location = request.POST.get('location')
+        year = request.POST.get('year')
+        cartype = request.POST.get('cartype')
+        price = request.POST.get('price')
 
-        query = People.objects.create(name=name, email=email, country=country, city=city, phone=phone, age=age, gender=gender)
+        query = People.objects.create(model=model, location=location, year=year, cartype=cartype, price=price)
         query.save()
         return redirect("/")
-    return render(request, "index.html")
+    return render(request, "home.html")

@@ -4,13 +4,11 @@ from django.db import models
 
 
 class People(models.Model):
-    name = models.CharField(max_length=30, blank=False, null=False)
-    email = models.EmailField()
-    phone = models.IntegerField(default=1)
-    country = models.CharField(default='Kenya', max_length=30)
-    city = models.CharField(default='Nairobi', max_length=30)
-    age = models.IntegerField()
-    gender = models.CharField(max_length=30, blank=False, null=False)
+    model = models.CharField(max_length=30, blank=False, null=False)
+    location = models.CharField(max_length=30)
+    year = models.IntegerField(default=1)
+    cartype = models.CharField(max_length=30)
+    price = models.IntegerField(default=1)
 
 
 def __str__(self):
